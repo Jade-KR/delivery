@@ -1,14 +1,13 @@
 <template>
   <div>
     <v-card fluid>
-      <button @click="show = !show">실시간 순위 보기</button>
-
+      <p class="headline grey--text font-weight-bold text-center">실시간 순위</p>
       <v-list>
         <v-list-item-group v-model="list" color="primary">
           <v-list-item v-for="value in list" :key="value.index">
-            <p class="display-1 font-weight-bold">{{value.index}}</p>
+            <p class="headline font-italic grey--text font-weight-bold">{{value.index}}</p>
             <div id="rank">
-              <v-list-title v-if="show">{{ value.title }}</v-list-title>
+              <v-list-title class="black--text">{{ value.title }}</v-list-title>
             </div>
           </v-list-item>
         </v-list-item-group>
@@ -22,7 +21,6 @@ export default {
   name: "Ranking",
   data() {
     return {
-      show: true,
       list: [
         { index: "1", title: "양념치킨" },
         { index: "2", title: "간장치킨" },
@@ -40,7 +38,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #rank {
   font-weight: bold;
   position: relative;

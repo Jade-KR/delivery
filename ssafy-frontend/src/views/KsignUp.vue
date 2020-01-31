@@ -97,7 +97,7 @@ export default {
   methods: {
     register() {
       this.$store
-        .dispatch("register", {
+        .dispatch("socialRegister", {
           id: this.id,
           pw: this.pw,
           name: this.name,
@@ -109,7 +109,7 @@ export default {
           signupDate: this.signupDate
         })
         .then(() => {
-          this.$router.push({ path: "/" });
+          this.$router.push({ path: "/UserMainPage" });
         });
     }
   },

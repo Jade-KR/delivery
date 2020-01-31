@@ -47,7 +47,11 @@
                       <template v-slot:activator="{ on }">
                         <v-list-item-content v-on="on">
                           <v-list-item-title>
-                            <span class="display-1 text-shadow font-weight-bold">{{ item.title }}</span>
+                            <span class="display-1 text-shadow font-weight-bold">
+                              <div class="link-7">
+                                <p id="effect">{{ item.title }}</p>
+                              </div>
+                            </span>
                           </v-list-item-title>
                         </v-list-item-content>
                       </template>
@@ -109,12 +113,6 @@ export default {
           path: "/",
           icon: "folder_open",
           info: "이것은 고객센터입니다."
-        },
-        {
-          title: "로그아웃",
-          path: "/",
-          icon: "folder_open",
-          info: "로그아웃 하고싶으면 클릭!!"
         }
       ]
     };
@@ -127,5 +125,113 @@ export default {
 };
 </script>
  
-<style>
+<style scoped>
+#effect {
+  text-transform: uppercase;
+  font-size: 36px;
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+[class^="link-"] {
+  display: inline-block;
+}
+
+.link-7 #effect:before {
+  content: "";
+  border-bottom: solid 1px white;
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  width: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+
+.link-7 #effect:hover:before {
+  border-bottom: solid thin white;
+  width: 40%;
+  -webkit-animation: heartbeat-x 1.7s infinite ease-in;
+  animation: heartbeat-x 1.7s infinite ease-in;
+}
+
+.link-7 #effect:hover {
+  -webkit-animation: heartbeat 1.7s infinite ease-in;
+  animation: heartbeat 1.7s infinite ease-in;
+}
+
+@-webkit-keyframes heartbeat {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  10% {
+    -webkit-transform: scale(1.1);
+  }
+  20% {
+    -webkit-transform: scale(1);
+  }
+  30% {
+    -webkit-transform: scale(1.1);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@-webkit-keyframes heartbeat-x {
+  0% {
+    -webkit-transform: scaleX(0);
+  }
+  10% {
+    -webkit-transform: scaleX(1);
+  }
+  20% {
+    -webkit-transform: scaleX(0);
+  }
+  30% {
+    -webkit-transform: scaleX(1);
+  }
+  40% {
+    -webkit-transform: scaleX(0);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes heartbeat-x {
+  0% {
+    transform: scaleX(0);
+  }
+  10% {
+    transform: scaleX(1);
+  }
+  20% {
+    transform: scaleX(0);
+  }
+  30% {
+    transform: scaleX(1);
+  }
+  40% {
+    transform: scaleX(0);
+  }
+}
 </style>

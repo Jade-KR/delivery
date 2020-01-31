@@ -7,7 +7,7 @@
       <v-row no-gutters>
         <v-col cols="6" xs="12" sm="2" md="2" lg="2">
           <!-- 검색창 -->
-          <v-layout wrap>
+          <v-layout wrap pa-2>
             <v-flex>
               <v-toolbar dense>
                 <v-text-field hide-details prepend-icon="search" single-line></v-text-field>
@@ -19,9 +19,16 @@
             </v-flex>
           </v-layout>
         </v-col>
-        <v-col cols="12" xs="12" sm="8" lg="9" md="9">
+        <v-col cols="12" xs="12" sm="4" lg="4" md="4">
           <v-layout pa-2>
-            <Menu></Menu>
+            <v-flex>
+              <Menu></Menu>
+            </v-flex>
+          </v-layout>
+        </v-col>
+        <v-col cols="12" xs="12" sm="4" lg="4" md="4">
+          <v-layout pa-2>
+            <OrderPossible></OrderPossible>
           </v-layout>
         </v-col>
       </v-row>
@@ -33,12 +40,14 @@
 import UserNavBar from "../components/UserNavBar";
 import Ranking from "../components/Ranking";
 import Menu from "../components/Menu";
+import OrderPossible from "../components/OrderPossible";
 export default {
   name: "UserMainPage",
   components: {
     Ranking,
     Menu,
-    UserNavBar
+    UserNavBar,
+    OrderPossible
   },
   methods: {
     test() {

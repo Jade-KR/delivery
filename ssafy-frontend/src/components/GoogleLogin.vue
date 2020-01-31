@@ -7,6 +7,7 @@
       width="55"
       height="55"
       viewBox="0 0 55 55"
+      style="cursor:pointer;"
     >
       <defs>
         <clipPath id="clip-path">

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <UserNavBar></UserNavBar>
     <br />
     <br />
     <br />
@@ -33,13 +34,18 @@
     </v-simple-table>
     <v-btn small color="error" @click="write">글쓰기</v-btn>
     <v-btn small color="primary" @click="get_info">테스트</v-btn>
+    <p>{{this.$store.state.user.data}}</p>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import test from "../services/test";
+import UserNavBar from "@/components/UserNavBar.vue";
 export default {
+  components: {
+    UserNavBar
+  },
   name: "Read",
   data() {
     return {
@@ -80,11 +86,6 @@ export default {
         },
         error => {}
       );
-    }
-  },
-  filters: {
-    reverse(board) {
-      return board.slice().reverse();
     }
   },
   mounted() {

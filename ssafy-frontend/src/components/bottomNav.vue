@@ -1,5 +1,5 @@
 <template>
-  <v-bottom-navigation fixed :value="activeBtn" grow>
+  <v-bottom-navigation fixed :value="activeBtn" grow hide-on-scroll>
     <v-card v-for="item in items" :key="item.title" link>
       <template>
         <MenuManagement :flag="item.title" :icon="item.icon"></MenuManagement>

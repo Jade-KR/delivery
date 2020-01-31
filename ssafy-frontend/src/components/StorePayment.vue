@@ -46,7 +46,7 @@ export default {
     return {
       store: [],
       credit: 0,
-      value: [423, 446, 675, 510, 590, 610, 760]
+      value: [423, 446, 675, 510, 590, 800, 760]
     };
   },
 

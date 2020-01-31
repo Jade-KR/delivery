@@ -8,6 +8,7 @@
               <v-card-text class="vcard" text-xs-center>
                 <v-form @submit.prevent="Sregister">
                   <p class="display-1 text-center font-weight-bold">회원가입</p>
+                  <br />
                   <v-row>
                     <v-text-field v-model="id" label="아이디" name="id" type="text" outlined dense></v-text-field>
                   </v-row>
@@ -52,14 +53,7 @@
                     />
                   </v-row>
                   <v-row>
-                    <v-text-field
-                      v-model="tel"
-                      label="핸드폰번호"
-                      name="tel"
-                      type="number"
-                      outlined
-                      dense
-                    />
+                    <v-text-field v-model="tel" label="핸드폰번호" name="tel" outlined dense />
                   </v-row>
                   <v-row>
                     <v-btn
@@ -124,8 +118,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .title {
   margin-left: 38%;
+}
+@import url("https://fonts.googleapis.com/css?family=Black+Han+Sans|Do+Hyeon|Jua|Nanum+Gothic|Sunflower:300");
+* {
+  font-family: "Do Hyeon", sans-serif;
 }
 </style>

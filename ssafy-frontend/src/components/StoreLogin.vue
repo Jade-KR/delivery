@@ -1,11 +1,12 @@
 <template >
   <v-content relative>
-    <v-container class="fill-height" fluid>
+    <v-container>
       <v-row justify="center">
-        <v-col cols="12" sm="8" md="3">
+        <v-col cols="12" sm="8" md="4">
           <v-card-text class="vcard" text-xs-center>
             <v-form @submit.prevent="login">
               <p class="display-1 text-center font-weight-bold">반반한 동네</p>
+              <p class="text-center">사장님 페이지</p>
               <br />
               <v-row>
                 <v-text-field
@@ -33,11 +34,11 @@
                   @keyup.enter="Slogin()"
                 ></v-text-field>
               </v-row>
+              <p class="errorMessage">{{ error }}</p>
               <v-row fluid>
                 <a>아이디</a>/
                 <a>비밀번호 찾기</a>
                 <router-link :to="{ name: 'SsignUp'}" style="margin-left: 20px;">회원가입</router-link>
-                <router-link :to="{ path: '/'}" style="margin-left: 20px;">메인페이지</router-link>
               </v-row>
               <br />
               <v-row>
@@ -52,19 +53,6 @@
                   font-family="SourceHanSansK-Bold, Source Han Sans K"
                   font-weight="700"
                 >로그인</v-btn>
-              </v-row>
-              <br />
-              <v-row justify="center">
-                <td>SNS 로그인</td>
-              </v-row>
-              <br />
-              <v-row justify="center">
-                <div class="social">
-                  <KakaoLogin></KakaoLogin>
-                </div>
-                <div>
-                  <GoogleLogin></GoogleLogin>
-                </div>
               </v-row>
             </v-form>
           </v-card-text>
@@ -98,7 +86,8 @@ export default {
       chk: 0,
       point: 0,
       signupDate: 214,
-      likes: 0
+      likes: 0,
+      error: null
     };
   },
   methods: {
@@ -118,6 +107,11 @@ export default {
         })
         .then(() => {
           this.$router.push({ name: "StoreMainPage" });
+        })
+        .catch(err => {
+          if (err.response == undefined) {
+            this.error = "* 가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.";
+          }
         });
     }
   }
@@ -132,5 +126,9 @@ export default {
 }
 .social {
   margin-right: 20px;
+}
+.errorMessage {
+  text-align: center;
+  color: red;
 }
 </style>

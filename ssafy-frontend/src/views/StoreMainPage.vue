@@ -7,7 +7,8 @@
 
     <!-- StorePayment.vue + OrderList.vue -->
 
-    <v-container >
+    <v-container>
+      
       <v-layout row wrap>
         <v-card elevation="6">
           <v-toolbar>

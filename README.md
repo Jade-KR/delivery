@@ -44,51 +44,121 @@
 </table>
 
 
-### Overview
----
-해당 프로젝트는 Firebase, Node.js, Vue.js기반으로 반응형 웹 서비스를 제공합니다.  
-Gitlab과 연동하여서 자신이 만들어놓은 프로젝트들의 목록을 확인할 수 있습니다.  
-Firebase를 사용하여 해당 웹 페이지를 배포해서 사용하는 사용자의 사용기기 사이즈에 맞게 반응형 웹 서비스를 제공함으로서 사용자들은 좀 더 편리하게 웹 서비스를 이용할 수 있습니다.  
+## 🤲 OverView<br> 
+### Goal
+ - SPA(Single Page Application)의 개념을 이해 
+ - 반응형 웹(Responsive Web)의 특징을 파악 
+ - 사용자 친화적이고 다양한 디바이스에 최적화 된 웹을 구현하는 것
 
-### Setup
----
-사용하기 전에 다음 조건을 모두 설치했는지 확인하십시오.
-* Node.js - Download & Install Node.js and the npm package manager. 
+### Used Technology
+- Vue.js (FrontEnd)
+    - 컴포넌트 단위의 관리로 유지보수와 재사용성이 높은 Vue.js 활용
+- FireBase (BackEnd)
+    - 구조를 단순화하고 초기 개발 시간을 단축하는 데에 도움이 되는 Firebase 활용
 
-> npm install  
-> npm install -g yarn  
-> npm install -g @vue/cli  
-> npm install vue  
-> npm install -g firebase tools  
+## ✨ Prequuisited<br>
+### develop machine Spec
+- Gitlab - SSAFY gitlab 사용합니다. 문제 발생시 [gitLab docs](https://lab.ssafy.com/help)를 활용합니다.
+- Vue.js - VS Code 설치 및 [Vue.js 공식 웹사이트](https://kr.vuejs.org/index.html) 및 [StackOverflow](https://stackoverflow.com/)를 통해 시작합니다
+- Node.js - Node.js 및 npm 패키지 관리자 다운로드 설치합니다
+- Firebase - [Firebase 공식 웹사이트](https://firebase.google.com/?hl=ko)를 방문하여 공식 메뉴얼 진행합니다
+- Jira - [SSAFY jira](https://jira.ssafy.com/secure/Dashboard.jspa)를 사용합니다. jira를 통해 issue 및 WorkFlow 등 전반적인 스프린트를 관리합니다.
 
-설치 후 제대로 설치가 되었는지 확인하세요.
-> npm list
+## 🎫 프로젝트 수행 목록
+<table>
+<tr><td>1. 프로젝트 개발 환경 설정</tr></td>
+<tr><td>2. Firebase 연동</tr></td>
+<tr><td>3. About Me 리사이징</tr></td>
+<tr><td>4. Portfolio 리사이징</tr></td>
+<tr><td>5. 이미지 배너 리사이징</tr></td>
+<tr><td>6. 네비게이션 바</tr></td>
+<tr><td>7. 모바일 사이드 바</tr></td>
+<tr><td>8. 사용자 정보 Drawer</tr></td>
+<tr><td>9. FrontEnd 배포</tr></td>
+<tr><td>10. 기능 테스트</tr></td>
+</table>
+<br>
+
+## 🎲 파일/디렉터리 구조
+- assets
+    - 프로젝트에 필요한 정적 리소스가 위치하는 디렉토리
+    - 이미지, 외부 css, 외부 js등
+- components
+    - 페이지 단위 컴포넌트에서 쓰이는 소규모 컴포넌트가 위치하는 디렉토리
+- services
+    - 프로젝트에 필요한 로직과 관련된 함수 js 파일이 위치하는 디렉토리
+- views
+    - 페이지 단위의 컴포넌트가 위치하는 디렉토리
+
+- router.js : 라우터 설정 관련 파일
+- store.js : vuex 파일
+- App.vue : 최상위 컴포넌트
+- main.js : 최상위 컴포넌트를 최초 호출하는 JavaScript 파일
+
+- - -
+
+## 🤦 SetUp
+### NPM 설치
+- [Node.js 공식 홈페이지](https://nodejs.org/ko/) 접속
+- 안정성과 신뢰도가 높은 LTS 버전 선택 권장
+
+### NPM 설치여부, 설치된 버전 확인
+```cmd
+> npm --version
+```
+
+### Vue.js, Vue-cli, Firebase 패키지 설치
+```cmd
+C:\> cd webmobile-skeleton
+C:\webmobile-skeleton> npm install
+C:\webmobile-skeleton> npm install -g yarn
+C:\webmobile-skeleton> npm install -g @vue/cli
+C:\webmobile-skeleton> npm install vue
+C:\webmobile-skeleton> npm install -g firebase-tools
+C:\webmobile-skeleton> npm list
+```
+
+### npm 이미지 업로더
+```cmd
+//1. vue-filepond filepond 설치
+$ npm install vue-filepond filepond --save
+
+//2. 플러그인 설치 옵션 사항
+$ npm install filepond-plugin-file-validate-type --save
+$ npm install filepond-plugin-image-preview --save
+```
+
+## 😆 Run
+### 프로젝트 실행
+"App running" 메시지 확인
+```cmd
+> npm run serve
+```
+
+### 프로젝트 로컬 실행
+1. 명령 프롬프트(cmd)에서 아래 커맨드 수행
+```cmd
+> vuejs-paginator@1.0.0 dev <프로젝트 경로>
+> node build/dev-server.js
+```
+
+2. 웹 브라우저에서 http://localhost:8080 접속
 
 
-### Build
----
-* 자신의 파이어베이스로 배포를 하고 싶다면 파이어베이스 프로젝트를 만들고 FirebaseService.j 파일에 자신의 프로젝트 ID와 기타 설정값들을 변경해주시길 바랍니다. 
-* 자신의 GitLab의 프로젝트 정보들을 보고싶다면 GitlabService.js 파일에 있는 메소드에 들어가는 변수 값들을 자신의 Gitlab ID에 맞게 설정해주시길 바랍니다.
 
-### Test
----
-local영역에서 자신이 수정한 결과를 확인하고 싶다면 해당 뷰 프로젝트 경로에서 
+## 👌 Deploy 
+### Firebase 서버 배포
+1. [](https://firebase.google.com) 접속 및 로그인
+2. firebase 프로젝트 시작하기 버튼 클릭
+3. 프로젝트 생성
+4. 생성된 프로젝트의 웹 속성 탭으로 이동
+5. 본인의 firebase SDK 확인 및 태그 첨부
+6. 로컬 개발 환경에서 명령 프롬프트(cmd) 실행 후 Deploy
+```cmd
+> firebase login
+> firebase init
+> firebase deploy
+```
+7. Firebase 대시보드에서 배포 결과 및 URL 확인
+8. 해당 URL로 접속하여 웹 페이지 확인
 
-> npm run serve  
-
-서버를 가동하고 하단에 "App Running"메세지를 확인하고 http://localhost:8080/ 으로 접속하면 프로젝트 실행 화면을 확인할 수 있습니다.
-
-### Run
----
-현재 버전이 https://sub-pjt-1-1ce19.firebaseapp.com/ 으로 배포되고 있습니다.
-
-### Deploy
----
-해당 프로젝트를 수정해서 배포를 하고 싶다면 아래와 같이 따라하십시오.
-1. Firebase 프로젝트를 생성하고 .firebaserc파일의 프로젝트id의 default값을 자신의 firebase project ID로 수정해줍니다.  
-2. 해당 skeleton project 폴더의 커맨드창에서 npm run build를 실행하여 dist파일을 생성해줍니다.
-3. firebase tools가 설치되어있지 않다면 설치를 하고 설치가 되어있다면 firebase login 커맨드를 치고 login을 해줍니다.
-4. login이 완료 되었다면 firebase init커맨드를 실행하고 Hosting을 체크해주시고 배포할 폴더를 dist로 변경해줍니다.
-5. index.html은 overwrite하지 않습니다.
-6. firebase init이 완료되었다면 firebase deploy 커맨드를 실행해줍니다.
-7. deploy 커맨드가 완료되면 하단에 있는 url로 접속을 확인합니다.

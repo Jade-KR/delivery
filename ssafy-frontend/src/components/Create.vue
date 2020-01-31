@@ -1,12 +1,23 @@
 <template>
-  <div v-if="userName !== writer">
+  <div v-if="userName !== writer && index !==undefined">
     <p>올바른 접근 방식이 아닙니다.</p>
     <v-btn small color="primary" @click="move()">글목록</v-btn>
   </div>
   <div v-else-if="index !==undefined">
-    <input v-model="category" placeholder="category" />
-    <input v-model="title" placeholder="title" />
-    <input v-model="body" placeholder="body" />
+    <p>
+      <select v-model="category">
+        <option disabled value>하나를 선택 해 주세용</option>
+        <option>치킨</option>
+        <option>피자</option>
+        <option>족발</option>
+      </select>
+    </p>
+    <p>
+      <input v-model="title" placeholder="title" />
+    </p>
+    <p>
+      <input v-model="body" placeholder="body" />
+    </p>
     <v-btn
       small
       color="error"
@@ -16,14 +27,20 @@
   </div>
   <div v-else>
     <select v-model="category">
-      <option disabled value>Please select one</option>
+      <option disabled value>하나를 선택 해 주세용</option>
       <option>치킨</option>
       <option>피자</option>
       <option>족발</option>
     </select>
-    <input v-model="address" placeholder="address" />
-    <input v-model="title" placeholder="title" />
-    <input v-model="body" placeholder="body" />
+    <p>
+      <input v-model="address" placeholder="address" />
+    </p>
+    <p>
+      <input v-model="title" placeholder="title" />
+    </p>
+    <p>
+      <input v-model="body" placeholder="body" />
+    </p>
     <v-btn
       small
       color="error"
@@ -41,13 +58,14 @@ export default {
   name: "Create",
   mounted() {
     this.get_info();
+    console.log(this.userName + "userName");
   },
 
   data() {
     const index = this.$route.params.contentId;
-    console.log(index);
+
     return {
-      userName: localStorage.userName,
+      userName: "",
       board: [],
       num: "",
       index: index,
@@ -96,20 +114,23 @@ export default {
       });
     },
     get_info() {
+      this.userName = localStorage.userName;
       test.backendService(
         res => {
           this.board = res;
-
-          console.log(this.index);
           if (typeof this.index !== "undefined") {
-            this.num = this.board[this.index].num;
-            this.category = this.board[this.index].category;
-            this.address = this.board[this.index].address;
-            this.writer = this.board[this.index].writer;
-            this.title = this.board[this.index].title;
-            this.body = this.board[this.index].body;
+            for (var i = 0; i < res.length; i++) {
+              if (res[i].num == this.index) {
+                this.num = this.board[i].num;
+
+                this.address = this.board[i].address;
+                this.writer = this.board[i].writer;
+                this.title = this.board[i].title;
+                this.body = this.board[i].body;
+                console.log(112312312312312);
+              }
+            }
           }
-          console.log(this.board);
         },
         error => {}
       );

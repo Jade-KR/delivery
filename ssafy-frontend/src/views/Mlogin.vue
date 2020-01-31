@@ -1,11 +1,12 @@
 <template >
   <v-content relative>
-    <v-container class="fill-height" fluid>
+    <v-container>
       <v-row justify="center">
-        <v-col cols="12" sm="8" md="3">
+        <v-col cols="12" sm="4" md="4">
           <v-card-text class="vcard" text-xs-center>
             <v-form @submit.prevent="login">
               <p class="display-1 text-center font-weight-bold">반반한 동네</p>
+              <p class="text-center">회원님 페이지</p>
               <br />
               <v-row>
                 <v-text-field
@@ -33,11 +34,11 @@
                   @keyup.enter="Mlogin()"
                 ></v-text-field>
               </v-row>
+              <p class="errorMessage">{{ error }}</p>
               <v-row fluid>
                 <a>아이디</a>/
                 <a>비밀번호 찾기</a>
                 <router-link :to="{ name: 'MsignUp'}" style="margin-left: 20px;">회원가입</router-link>
-                <router-link :to="{ path: '/'}" style="margin-left: 230px;">메인페이지</router-link>
               </v-row>
               <br />
               <v-row>
@@ -94,7 +95,8 @@ export default {
       address: 123,
       chk: 0,
       point: 0,
-      signupDate: 214
+      signupDate: 214,
+      error: null
     };
   },
   methods: {
@@ -115,7 +117,9 @@ export default {
           this.$router.push({ name: "UserMainPage" });
         })
         .catch(err => {
-          console.log(err.response);
+          if (err.response == undefined) {
+            this.error = "* 가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.";
+          }
         });
     }
   }
@@ -130,5 +134,9 @@ export default {
 }
 .social {
   margin-right: 20px;
+}
+.errorMessage {
+  text-align: center;
+  color: red;
 }
 </style>

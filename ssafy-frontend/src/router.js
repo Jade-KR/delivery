@@ -12,8 +12,7 @@ import UserMainPage from './views/UserMainPage'
 import StoreLogin from './components/StoreLogin'
 import SsignUp from './views/SsignUp'
 import MenuManagement from './components/MenuManagement'
-import store from './vuex/store'
-
+import main from './views/main'
 
 Vue.use(Router)
 
@@ -108,6 +107,11 @@ const router = new Router({
 			meta: {
 				requireAuth: true
 			}
+		},
+		{
+			path: '/main',
+			name: 'main',
+			component: main
 		}
 	]
 })
